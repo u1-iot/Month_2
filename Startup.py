@@ -1,94 +1,57 @@
 import datetime
-import time
+from PIL import Image, ImageDraw, ImageFont
 import unicornhathd
+import time
  
-'''
-定義部分
-'''
+COLOR = (200, 0, 0)
  
-# 使用する色の定義
-COLOR = (128, 0, 0)
-
- # タイムゾーンの設定
-TIMEZONE = datetime.timezone(datetime.timedelta(hours=9), name='JST')
-
-# 0から9とコロンのマッピング
-# 横3 x 縦6 = 18ピクセルのフォントを定義
-NUMBERS = (
-    0b111101101101101111, # 0
-    0b110010010010010111, # 1
-    0b111001001111100111, # 2
-    0b111001111001001111, # 3
-    0b100100100101111001, # 4
-    0b111100111001001111, # 5
-    0b111100100111101111, # 6
-    0b111001001001001001, # 7
-    0b111101111101101111, # 8
-    0b111101111001001111, # 9
-    0b000010000000010000, # :
-)
+width, height = unicornhathd.get_shape()
  
-# 表示向きの定義(0度)
 unicornhathd.rotation(0)
  
-'''
-関数部分
-'''
  
-# フォント表示関数の定義
-def render_numeric(x, y, number):
-    # 行ごとに分割する
-    for row_number in range(0, 6):
-        try:
-            # マッピングから該当行の部分を取得する
-            row = NUMBERS[number] >> ((5 - row_number) * 3) & 0b111
-        except KeyError:
-            return None
+def main():
+    # 無限ループ
+    while True:
+        # 描写用キャンバスの新規作成
+        image = Image.new("RGB", (width, height), (0, 0, 0))
+        draw = ImageDraw.Draw(image)
  
-        # 列ごとの処理
-        for col_number in reversed(range(0, 3)):
-            # 該当列のビットが1の場合
-            if row & (0b1 << col_number):
-                # x位置の算出
-                # 指定位置からマイナスをしていくことでunicornHatHDのx軸反転をする
-                x_point = x - (2 - col_number)
-                # y位置の算出
-                y_point = y + row_number
-                # ピクセルを追加する
-                unicornhathd.set_pixel(x_point, y_point, *COLOR)
+        # 現在時刻の取得
+        now = datetime.datetime.now()
  
-'''
-ループ部分
-'''
+        # キャンバスに時、分の描写
+        draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
+        draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
  
-# ループ
-while True:
-    # バッファのクリア
-    unicornhathd.clear()
+        # ここからunicornhatへキャンバス描写作業
+        unicornhathd.clear()
  
-    # 現在時刻の取得
-    now = datetime.datetime.now(TIMEZONE)
+        # x, yを指定して1ドットずつ描写する
+        for x in range(width):
+            for y in range(height):
+                r, g, b = image.getpixel((x, y))
+                # ここの部分でx軸を反転させている
+                unicornhathd.set_pixel(width-x-1, y, r, g, b)
  
-    # 時の二桁目がゼロ以外の場合、
-    # 二桁目を表示する
-    if now.hour >= 10:
-        render_numeric(15, 0, now.hour // 10)
+        # コロンの代わりに2x2のドットを描写する
+        if now.second % 2:
+            unicornhathd.set_pixel(0, height-1, *COLOR)
+            unicornhathd.set_pixel(1, height-1, *COLOR)
+            unicornhathd.set_pixel(0, height-2, *COLOR)
+            unicornhathd.set_pixel(1, height-2, *COLOR)
  
-    # 時の二桁目を表示する
-    render_numeric(12, 0, now.hour % 10)
+        # 画面のリフレッシュ命令
+        unicornhathd.show()
  
-    # コロンの表示
-    # 秒が奇数だった場合のみ表示する
-    if now.second % 2:
-        # コロンはNUMBERS[10]に格納されている
-        render_numeric(9, 0, 10)
+        time.sleep(0.1)
  
-    # 分の表示
-    render_numeric(6, 0, now.minute // 10)
-    render_numeric(2, 0, now.minute % 10)
+if __name__ == '__main__':
+    try:
+        main()
  
-    # バッファの描写命令
-    unicornhathd.show()
+    except KeyboardInterrupt:
+        pass
  
-    # 0.1秒待つ
-    time.sleep(0.1)
+    finally:
+        unicornhathd.off()
