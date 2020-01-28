@@ -9,7 +9,7 @@ while True:
     for i in range(0, 255):
         x = i % 16
         y = i // 16
-        unicornhathd.set_pixel(x, y, 255, 0, 0)
+        unicornhathd.set_pixel(x, y, 0, 255, 0)
         unicornhathd.show()
         time.sleep(0.5 / 16)
  
