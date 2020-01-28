@@ -8,7 +8,10 @@ import unicornhathd
  
 # 使用する色の定義
 COLOR = (128, 0, 0)
- 
+
+ # タイムゾーンの設定
+TIMEZONE = datetime.timezone(datetime.timedelta(hours=9), name='JST')
+
 # 0から9とコロンのマッピング
 # 横3 x 縦6 = 18ピクセルのフォントを定義
 NUMBERS = (
@@ -64,7 +67,7 @@ while True:
     unicornhathd.clear()
  
     # 現在時刻の取得
-    now = datetime.datetime.now()
+    now = datetime.datetime.now(TIMEZONE)
  
     # 時の二桁目がゼロ以外の場合、
     # 二桁目を表示する
