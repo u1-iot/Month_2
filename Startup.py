@@ -32,9 +32,42 @@ def main():
         if counter == 0:
             counter = 1
             draw.text((0, 0), u'三', fill=COLOR, font=font)
+        elif counter == 1:
+            counter = 2
+            draw.text((0, 0), u'菱', fill=COLOR, font=font)
+        elif counter == 1:
+            counter = 2
+            draw.text((0, 0), u'電', fill=COLOR, font=font)
+        elif counter == 1:
+            counter = 2
+            draw.text((0, 0), u'機', fill=COLOR, font=font)
+        elif counter == 1:
+            counter = 2
+            draw.text((0, 0), u'ビ', fill=COLOR, font=font)
+        elif counter == 2:
+            counter = 3
+            draw.text((0, 0), u'ジ', fill=COLOR, font=font)
+        elif counter == 3:
+            counter = 4
+            draw.text((0, 0), u'ネ', fill=COLOR, font=font)
+        elif counter == 4:
+            counter = 5
+            draw.text((0, 0), u'ス', fill=COLOR, font=font)
+        elif counter == 5:
+            counter = 6
+            draw.text((0, 0), u'シ', fill=COLOR, font=font)
+        elif counter == 6:
+            counter = 7
+            draw.text((0, 0), u'ス', fill=COLOR, font=font)
+        elif counter == 7:
+            counter = 8
+            draw.text((0, 0), u'テ', fill=COLOR, font=font)
+        elif counter == 8:
+            counter = 9
+            draw.text((0, 0), u'ム', fill=COLOR, font=font)
         else:
             counter = 0
-            draw.text((0, 0), u'菱', fill=COLOR, font=font)
+            draw.text((0, 0), u'★', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
