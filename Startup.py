@@ -10,7 +10,7 @@ width, height = unicornhathd.get_shape()
 unicornhathd.rotation(0)
 
 # フォントの定義
-font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 18) 
+font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 16) 
 
 
 def main():
