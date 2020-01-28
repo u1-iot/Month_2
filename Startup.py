@@ -67,7 +67,7 @@ def main():
             draw.text((0, 0), u'ム', fill=COLOR, font=font)
         else:
             counter = 0
-            draw.text((0, 0), u'★', fill=COLOR, font=font)
+            draw.text((0, 0), u'　', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
@@ -89,7 +89,7 @@ def main():
         # 画面のリフレッシュ命令
         unicornhathd.show()
  
-        time.sleep(1)
+        time.sleep(0.5)
  
 if __name__ == '__main__':
     try:
