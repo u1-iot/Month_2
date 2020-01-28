@@ -10,7 +10,7 @@ width, height = unicornhathd.get_shape()
 unicornhathd.rotation(0)
 
 # フォントの定義
-font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 16) 
+font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 18) 
 
 
 def main():
@@ -47,11 +47,11 @@ def main():
                 unicornhathd.set_pixel(width-x-1, y, r, g, b)
  
         # コロンの代わりに2x2のドットを描写する
-        if now.second % 2:
-            unicornhathd.set_pixel(0, height-1, *COLOR)
-            unicornhathd.set_pixel(1, height-1, *COLOR)
-            unicornhathd.set_pixel(0, height-2, *COLOR)
-            unicornhathd.set_pixel(1, height-2, *COLOR)
+        #if now.second % 2:
+        #    unicornhathd.set_pixel(0, height-1, *COLOR)
+        #    unicornhathd.set_pixel(1, height-1, *COLOR)
+        #    unicornhathd.set_pixel(0, height-2, *COLOR)
+        #    unicornhathd.set_pixel(1, height-2, *COLOR)
  
         # 画面のリフレッシュ命令
         unicornhathd.show()
