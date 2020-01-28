@@ -10,7 +10,7 @@ width, height = unicornhathd.get_shape()
 unicornhathd.rotation(0)
 
 # フォントの定義
-font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 9) 
+font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 16) 
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
             draw.text((0, 0), u'三', fill=COLOR, font=font)
         else:
             counter = 0
-            draw.text((0, 7), u'菱', fill=COLOR, font=font)
+            draw.text((0, 0), u'菱', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
@@ -56,7 +56,7 @@ def main():
         # 画面のリフレッシュ命令
         unicornhathd.show()
  
-        time.sleep(0.1)
+        time.sleep(1)
  
 if __name__ == '__main__':
     try:
