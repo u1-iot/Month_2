@@ -12,6 +12,9 @@ unicornhathd.rotation(0)
 # フォントの定義
 font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 9) 
  
+ # カウンタ
+ counter = 0
+
 def main():
     # 無限ループ
     while True:
@@ -25,8 +28,12 @@ def main():
         # キャンバスに時、分の描写
         # draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
         # draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
-        draw.text((0, 0), u'三', fill=COLOR, font=font)
-        draw.text((0, 7), u'菱', fill=COLOR, font=font)
+        if counter == 0:
+        	counter = 1
+        	draw.text((0, 0), u'三', fill=COLOR, font=font)
+        else:
+            counter = 0
+            draw.text((0, 7), u'菱', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
