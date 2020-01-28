@@ -4,11 +4,13 @@ import unicornhathd
 import time
  
 COLOR = (200, 0, 0)
- 
+
 width, height = unicornhathd.get_shape()
  
 unicornhathd.rotation(0)
- 
+
+# フォントの定義
+font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 9) 
  
 def main():
     # 無限ループ
@@ -23,8 +25,8 @@ def main():
         # キャンバスに時、分の描写
         # draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
         # draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
-        draw.text((0, -2), u'MD', fill=COLOR)
-        draw.text((0,  7), u'SOL', fill=COLOR)
+        draw.text((0, -2), u'MD', fill=COLOR, font=font)
+        draw.text((0,  7), u'SOL', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
