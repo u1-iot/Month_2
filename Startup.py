@@ -29,8 +29,8 @@ def main():
         # draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
         # draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
         if counter == 0:
-        	counter = 1
-        	draw.text((0, 0), u'三', fill=COLOR, font=font)
+            counter = 1
+            draw.text((0, 0), u'三', fill=COLOR, font=font)
         else:
             counter = 0
             draw.text((0, 7), u'菱', fill=COLOR, font=font)
