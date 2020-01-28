@@ -25,8 +25,8 @@ def main():
         # キャンバスに時、分の描写
         # draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
         # draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
-        draw.text((0, -2), u'MD', fill=COLOR, font=font)
-        draw.text((0,  7), u'SOL', fill=COLOR, font=font)
+        draw.text((0, 0), u'三', fill=COLOR, font=font)
+        draw.text((0, 7), u'菱', fill=COLOR, font=font)
 
         # ここからunicornhatへキャンバス描写作業
         unicornhathd.clear()
