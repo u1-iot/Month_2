@@ -6,7 +6,7 @@ while True:
  
     unicornhathd.clear()
  
-    for i in range(0, 255):
+    for i in range(0, 256):
         x = i % 16
         y = i // 16
         unicornhathd.set_pixel(x, y, 0, 255, 0)
