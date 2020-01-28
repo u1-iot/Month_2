@@ -1,1 +1,9 @@
-{"name": "Month2","version": "","description": "2ヶ月目の教材用","author": "","license": "","language": "","scripts": {"start": "Startup.py"}}
+{
+	"name": "Month2",
+	"version": "",
+	"description": "2ヶ月目の教材用",
+	"author": "",
+	"license": "",
+	"language": "",
+	"scripts": {"start": "python3 -u Startup.py"}
+}
