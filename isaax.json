@@ -5,5 +5,7 @@
 	"author": "",
 	"license": "",
 	"language": "",
-	"scripts": {"start": "python3 -u Startup.py"}
+	"scripts": {
+	    "start": "python3 -u Startup.py"
+	    }
 }
