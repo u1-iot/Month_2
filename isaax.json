@@ -6,6 +6,6 @@
 	"license": "",
 	"language": "",
 	"scripts": {
-	    "start": "python3 -u Startup.py"
+	    "start": "python3 -u Startup_xxx.py"
 	    }
 }
