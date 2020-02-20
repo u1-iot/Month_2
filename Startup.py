@@ -22,10 +22,10 @@ def main():
         # 描写用キャンバスの新規作成
         image = Image.new("RGB", (width, height), (0, 0, 0))
         draw = ImageDraw.Draw(image)
- 
+
         # 現在時刻の取得
         now = datetime.datetime.now()
- 
+
         # キャンバスに時、分の描写
         # draw.text((0, -2), '{0:02}'.format(now.hour), fill=COLOR)
         # draw.text((0, 7), '{0:02}'.format(now.minute), fill=COLOR)
