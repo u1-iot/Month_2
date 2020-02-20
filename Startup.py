@@ -12,7 +12,6 @@ unicornhathd.rotation(0)
 # フォントの定義
 font = ImageFont.truetype('/usr/share/fonts/opentype/ipafont-gothic/ipagp.ttf', 16) 
 
-
 def main():
     # カウンタ
     counter = 0
