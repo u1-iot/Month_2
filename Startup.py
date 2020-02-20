@@ -2,11 +2,11 @@ import datetime
 from PIL import Image, ImageDraw, ImageFont
 import unicornhathd
 import time
- 
+
 COLOR = (200, 0, 0)
 
 width, height = unicornhathd.get_shape()
- 
+
 unicornhathd.rotation(0)
 
 # フォントの定義
